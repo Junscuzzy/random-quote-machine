@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$blue0: #f6fffe;
+$blue1: #cdecff;
+$blue2: #96ccff;
+$blue3: #357edd;
+$blue4: #00449e;
+$blue5: #001b44;
+
+$primary: $blue3;
+$text: $blue5;
+$white: $blue0;
+
+$box-shadow: .5rem .5rem 1rem 0 rgba( 0, 0, 0, 0.2 );
+$radius: .25rem;
+$duration: 250ms;
+
+%link {
+  font-family: 'Roboto', sans-serif;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity $duration;
+  outline:none;
+  color: $primary;
+  text-decoration: unset;
+  &:hover {
+    opacity: .8;
+  }
+}
+
+%button {
+  @extend %link;
+  border:none;
+  border-radius: $radius;
+  color: $white;
+  background-color: $primary;
+  padding: .8rem 1.2rem;
+}
+
+.App {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary;
+
+  &__box {
+    width: 500px;
+    max-width: 92%;
+    background-color: $white;
+    padding: 2rem 3rem;
+    color: $primary;
+    box-shadow: $box-shadow;
+    border-radius: $radius;
+  }
+
+  &__body {
+    margin-bottom: 2rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__text {
+    font-family: 'Lora', serif;
+    text-align: center;
+    font-weight: 500;
+    font-size: 2em;
+  }
+
+  &__author {
+    text-align: right;
+    font-size:1em;
+  }
+
+  &__new {
+    @extend %button;
+  }
+
+  &__tweet {
+    @extend %button;
+  }
+
+  &__icon {
+    width: 1.2rem;
+    height: auto;
+    fill: $white;
+  }
+
+}
