@@ -8,7 +8,8 @@ import twitter from './twitter.svg';
 import { quotes } from './quotes'
 
 // Tests with freeCodeCamp
-const fccCdn = 'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js';
+const isDev = process.env.NODE_ENV !== 'production';
+const fccCdn = isDev ? 'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js' : null;
 
 function App() {
   const [quote, setQuote] = useState({});
@@ -28,9 +29,11 @@ function App() {
   const { quote: text, author } = quote;
   return (
     <div className="App">
-      <Helmet>
-        <script type="text/javascript" src={fccCdn} />
-      </Helmet>
+      {fccCdn && (
+        <Helmet>
+          <script type="text/javascript" src={fccCdn} />
+        </Helmet>
+      )}
       <div id="quote-box" className="App__box">
         <div className="App__body">
           <p id="text" className="App__text">
